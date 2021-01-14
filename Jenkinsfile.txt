@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('prepare') {
              steps {
-                git credentialsId: 'dockerpro', url: 'https://github.com/yasmine-ben-slimen/yasminedocker.git'
+                git credentialsId: 'yas', url: 'https://github.com/yasmine-ben-slimen/yasminedocker.git'
                 stash name:'scm', includes:'*'
             }
         }
