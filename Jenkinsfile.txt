@@ -1,0 +1,34 @@
+pipeline {
+    agent any
+    stages {
+        stage('prepare') {
+             steps {
+                git credentialsId: 'dockerpro', url: 'https://github.com/yasmine-ben-slimen/yasminedocker.git'
+                stash name:'scm', includes:'*'
+            }
+        }
+        stage('Build') {
+             steps {
+                 sh "docker-compose build"
+            }
+        }
+        stage('Test') {
+            
+            
+            steps {
+            unstash 'scm'
+            script{
+                docker.image('python:3.8-slim-buster').inside{ 
+                    sh 'pip install -r app/requirements.txt'
+                    sh 'python app/unittests.py'
+                    
+                }
+            }
+        }
+            
+        }
+       
+            
+            
+        }
+    }

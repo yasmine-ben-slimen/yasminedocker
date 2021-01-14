@@ -1,0 +1,30 @@
+<html>
+   <style>
+      body {
+        background-color: coral;
+      }
+      </style>
+      <style>
+         h1 {text-align: center;}
+         p {text-align: center;}
+         input {text-align: center;}
+         </style>
+   <body>
+      <centre>
+      <h1 >Tester VGG</h1>
+      <form action = "http://localhost:5000/uploadervgg" method = "POST" 
+         enctype = "multipart/form-data">
+         <input type = "file" name = "file" />
+         <input type = "submit"/>
+      </form>  
+   </centre>
+      <centre>
+      <h1 tyle="background-color: green;">Tester SVM</h1>
+      <form action = "http://localhost:5000/uploader" method = "POST" 
+         enctype = "multipart/form-data">
+         <input type = "file" name = "file" />
+         <input type = "submit"/>
+      </form> 
+   </centre>  
+   </body>
+</html>
